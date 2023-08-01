@@ -10,7 +10,7 @@ let b4 = Buffer.allocUnsafe(10);
 console.log(b4);
 
 //Depracted
-let buf = new Buffer('This is my pretty example');
-let json = JSON.stringify(buf);
-let buf2 = new Buffer(JSON.parse(json).data);
-console.log(buf2.toString())
+let buf = Buffer.from('This is my pretty example');
+let json = JSON.stringify({ data: [...buf] });
+let buf2 = Buffer.from(JSON.parse(json).data);
+console.log(buf2.toString());
